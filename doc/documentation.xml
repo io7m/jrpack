@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright © 2012 http://io7m.com
+
+  Permission to use, copy, modify, and/or distribute this software for any
+  purpose with or without fee is hereby granted, provided that the above
+  copyright notice and this permission notice appear in all copies.
+
+  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+  -->
+
+<s:document
+  xmlns:s="http://www.io7m.com/schemas/structural/0.1.0"
+  xmlns:xi="http://www.w3.org/2001/XInclude">
+  <s:document-title>io7m-jrpack 1.0.0 Documentation</s:document-title>
+  <s:document-style>documentation.css</s:document-style>
+  <s:document-contents/>
+
+  <s:part>
+    <s:part-title>Package Information</s:part-title>
+    <s:part-contents />
+    <s:section>
+      <s:section-title>Orientation</s:section-title>
+      <s:subsection>
+        <s:subsection-title>Overview</s:subsection-title>
+        <s:paragraph>
+          The <s:term type="package">jrpack</s:term> package implements
+          simple 1D and 2D packing algorithms. The algorithms are general
+          purpose: they take a set of rectangles and attempt to pack them
+          into a large rectangle in a space-efficient manner. Rectangle
+          packing is often used during lightmap generation and in the
+          generation of GPU textures for efficient text rendering.
+        </s:paragraph>
+      </s:subsection>
+    </s:section>
+    <s:section>
+      <s:section-title>Installation</s:section-title>
+      <s:subsection>
+        <s:subsection-title>Installation Requirements</s:subsection-title>
+        <s:paragraph>
+          Iff compiling from source, the following jar files must be
+          placed in the directory <s:term type="file">ext</s:term> in
+          the project root:
+        </s:paragraph>
+        <s:formal-item kind="dependency_table" type="dependencies">
+          <s:formal-item-title>Compile-time dependencies</s:formal-item-title>
+          <s:table>
+            <s:table-summary>Compile-time dependencies</s:table-summary>
+            <s:table-head>
+              <s:table-column-name>Jar</s:table-column-name>
+              <s:table-column-name>Source</s:table-column-name>
+            </s:table-head>
+            <s:table-body>
+              <s:table-row>
+                <s:table-cell><s:term type="file">io7m-jaux-1.0.0.jar</s:term></s:table-cell>
+                <s:table-cell><s:link-external target="http://io7m.com/software/io7m-jaux">jaux</s:link-external></s:table-cell>
+              </s:table-row>
+              <s:table-row>
+                <s:table-cell><s:term type="file">annotations.jar</s:term></s:table-cell>
+                <s:table-cell><s:link-external target="http://findbugs.sourceforge.net">findbugs</s:link-external></s:table-cell>
+              </s:table-row>
+              <s:table-row>
+                <s:table-cell><s:term type="file">jsr305.jar</s:term></s:table-cell>
+                <s:table-cell><s:link-external target="http://findbugs.sourceforge.net">findbugs</s:link-external></s:table-cell>
+              </s:table-row>
+              <s:table-row>
+                <s:table-cell><s:term type="file">junit-4.10.jar</s:term></s:table-cell>
+                <s:table-cell><s:link-external target="http://junit.org">junit</s:link-external></s:table-cell>
+              </s:table-row>
+            </s:table-body>
+          </s:table>
+        </s:formal-item>
+        <s:paragraph>
+          The project can then be compiled using
+          <s:link-external target="http://ant.apache.org">Ant</s:link-external>:
+        </s:paragraph>
+        <s:paragraph>
+          <s:verbatim type="example"><![CDATA[$ ant]]></s:verbatim>     
+        </s:paragraph>
+      </s:subsection>
+      <s:subsection>
+        <s:subsection-title>Installation</s:subsection-title>
+        <s:paragraph>
+          Include <s:term type="file">io7m-jrpack-1.0.0.jar</s:term>
+          in your projects. The build process also produces a "source" jar
+          file, <s:term type="file">io7m-jrpack-source-1.0.0.jar</s:term>,
+          that can be used for debugging in any IDE. The jar files do not
+          contain any of the dependencies of the project, so these should
+          be included separately.
+        </s:paragraph>
+      </s:subsection>
+    </s:section>
+    <s:section>
+      <s:section-title>Supported Systems</s:section-title>
+      <s:paragraph>
+        The software is known to pass 100% of the included unit tests on the
+        following platforms:
+      </s:paragraph>
+        <s:formal-item kind="platform_table" type="platforms">
+          <s:formal-item-title>Supported systems</s:formal-item-title>
+          <s:table>
+            <s:table-summary>Supported systems</s:table-summary>
+            <s:table-head>
+              <s:table-column-name>OS</s:table-column-name>
+              <s:table-column-name>OS-Version</s:table-column-name>
+              <s:table-column-name>OS-Arch</s:table-column-name>
+              <s:table-column-name>JDK-Vendor</s:table-column-name>
+              <s:table-column-name>JDK-Version</s:table-column-name>
+              <s:table-column-name>VM</s:table-column-name>
+              <s:table-column-name>VM-Version</s:table-column-name>
+            </s:table-head>
+            <s:table-body>
+              <s:table-row>
+                <s:table-cell>Linux</s:table-cell>
+                <s:table-cell>3.2.9-1-ARCH</s:table-cell>
+                <s:table-cell>x86_64</s:table-cell>
+                <s:table-cell>Sun Microsystems Inc.</s:table-cell>
+                <s:table-cell>1.6.0_24</s:table-cell>
+                <s:table-cell>OpenJDK 64-Bit Server VM</s:table-cell>
+                <s:table-cell>20.0-b12</s:table-cell>
+              </s:table-row>
+              <s:table-row>
+                <s:table-cell>Windows XP</s:table-cell>
+                <s:table-cell>5.1</s:table-cell>
+                <s:table-cell>x86</s:table-cell>
+                <s:table-cell>Oracle Corporation</s:table-cell>
+                <s:table-cell>1.7.0_02</s:table-cell>
+                <s:table-cell>Java Hotspot(TM) Client VM</s:table-cell>
+                <s:table-cell>22.0-b10</s:table-cell>
+              </s:table-row>
+              <s:table-row>
+                <s:table-cell>Mac OS X</s:table-cell>
+                <s:table-cell>10.6.8</s:table-cell>
+                <s:table-cell>x86_64</s:table-cell>
+                <s:table-cell>Apple Inc.</s:table-cell>
+                <s:table-cell>1.6.0_29</s:table-cell>
+                <s:table-cell>Java Hotspot(TM) 64-Bit Server VM</s:table-cell>
+                <s:table-cell>20.4-b02-402</s:table-cell>
+              </s:table-row>
+              <s:table-row>
+                <s:table-cell>SunOS</s:table-cell>
+                <s:table-cell>5.11</s:table-cell>
+                <s:table-cell>x86</s:table-cell>
+                <s:table-cell>Sun Microsystems Inc.</s:table-cell>
+                <s:table-cell>1.6.0_21</s:table-cell>
+                <s:table-cell>Java Hotspot(TM) Client VM</s:table-cell>
+                <s:table-cell>17.0-b16</s:table-cell>
+              </s:table-row>
+            </s:table-body>
+          </s:table>
+        </s:formal-item>
+    </s:section>
+    <s:section>
+      <s:section-title>Platform Specific Issues</s:section-title>
+      <s:paragraph>
+        There are currently no known platform-specific issues.
+      </s:paragraph>
+    </s:section>
+    <s:section>
+      <s:section-title>License</s:section-title>
+      <s:paragraph>
+        All files distributed with the <s:term type="package">jrpack</s:term>
+        package are placed under the following license:
+        <s:verbatim type="license"><![CDATA[Copyright © 2012 http://io7m.com
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.]]>
+        </s:verbatim>
+      </s:paragraph>
+    </s:section>
+  </s:part>
+
+  <s:part>
+    <s:part-title>Tutorial</s:part-title>
+    <s:part-contents/>
+    <s:section>
+      <s:section-title>1D Packing</s:section-title>
+      <s:paragraph>
+        The 1D packing algorithm packs constant-height rectangles
+        of varying widths into a given rectangle. On insertion of
+        a given width, the packing algorithm returns the coordinates
+        of the resulting packed rectangle, or an error code. The algorithm
+        returns an error when there is no space remaining in the rectangle, or
+        when the given width would not fit even if the rectangle was empty.
+      </s:paragraph>
+      <s:formal-item kind="examples">
+        <s:formal-item-title>1D Packing</s:formal-item-title>
+        <s:verbatim><![CDATA[
+/*
+ * Copyright © 2012 http://io7m.com
+ * 
+ * Permission to use, copy, modify, and/or distribute this software for any
+ * purpose with or without fee is hereby granted, provided that the above
+ * copyright notice and this permission notice appear in all copies.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+ * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY
+ * SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
+ * IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ */
+
+package com.io7m.jrpack.examples;
+
+import com.io7m.jaux.Constraints.ConstraintError;
+import com.io7m.jrpack.Pack1D;
+import com.io7m.jrpack.PackResult;
+import com.io7m.jrpack.PackResult.PackOK;
+import com.io7m.jrpack.PackResult.PackResultCode;
+
+public final class Main1D
+{
+  public static void main(
+    final String args[])
+    throws ConstraintError
+  {
+    // Create a 32x32 rectangle, holding rectangles of height 16
+    final Pack1D packer = new Pack1D(32, 32, 16);
+
+    final PackResult r0 = packer.insert(33);
+    switch (r0.type) {
+      case PACK_RESULT_OK:
+        throw new AssertionError("unreachable");
+      case PACK_RESULT_OUT_OF_SPACE:
+        throw new AssertionError("unreachable");
+      case PACK_RESULT_TOO_LARGE:
+        System.out.println("too large!");
+    }
+
+    final PackResult r1 = packer.insert(32);
+    switch (r1.type) {
+      case PACK_RESULT_OK:
+      {
+        final PackOK r = (PackOK) r1;
+        System.out.println(r.rectangle);
+        break;
+      }
+      case PACK_RESULT_OUT_OF_SPACE:
+        throw new AssertionError("unreachable");
+      case PACK_RESULT_TOO_LARGE:
+        throw new AssertionError("unreachable");
+    }
+
+    final PackResult r2 = packer.insert(32);
+    assert r2.type == PackResultCode.PACK_RESULT_OK;
+
+    final PackResult r3 = packer.insert(32);
+    switch (r3.type) {
+      case PACK_RESULT_OK:
+        throw new AssertionError("unreachable");
+      case PACK_RESULT_OUT_OF_SPACE:
+        System.out.println("out of space!");
+        break;
+      case PACK_RESULT_TOO_LARGE:
+        throw new AssertionError("unreachable");
+    }
+  }
+}]]>
+        </s:verbatim>
+      </s:formal-item>
+    </s:section>
+    <s:section>
+      <s:section-title>2D Packing</s:section-title>
+      <s:paragraph>
+        The 2D packing algorithm packs rectangles into a given starting
+        rectangle. On insertion of a given rectangle, the packing algorithm
+        returns the coordinates of the resulting packed rectangle, or an
+        error code. The algorithm returns an error when there is no space
+        remaining in the rectangle, or when the given width would not fit
+        even if the rectangle was empty. Note that perfect rectangle packing
+        is NP-complete, and the algorithm used here will waste some space
+        and will often give somewhat better results if the rectangles to be
+        inserted are sorted by size and inserted largest first.
+      </s:paragraph>
+      <s:formal-item kind="examples">
+        <s:formal-item-title>2D Packing</s:formal-item-title>
+        <s:verbatim><![CDATA[
+/*
+ * Copyright © 2012 http://io7m.com
+ * 
+ * Permission to use, copy, modify, and/or distribute this software for any
+ * purpose with or without fee is hereby granted, provided that the above
+ * copyright notice and this permission notice appear in all copies.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+ * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY
+ * SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
+ * IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ */
+
+package com.io7m.jrpack.examples;
+
+import com.io7m.jaux.Constraints.ConstraintError;
+import com.io7m.jrpack.Pack2D;
+import com.io7m.jrpack.PackResult;
+import com.io7m.jrpack.PackResult.PackOK;
+import com.io7m.jrpack.Rectangle;
+
+public final class Main2D
+{
+  public static void main(
+    final String args[])
+    throws ConstraintError
+  {
+    // Create a 32x32 rectangle
+    final Pack2D packer = new Pack2D(32, 32);
+
+    final PackResult r0 = packer.insert(new Rectangle(0, 0, 63, 63));
+    switch (r0.type) {
+      case PACK_RESULT_OK:
+        throw new AssertionError("unreachable");
+      case PACK_RESULT_OUT_OF_SPACE:
+        throw new AssertionError("unreachable");
+      case PACK_RESULT_TOO_LARGE:
+        System.out.println("too large!");
+    }
+
+    final PackResult r1 = packer.insert(new Rectangle(0, 0, 31, 31));
+    switch (r1.type) {
+      case PACK_RESULT_OK:
+      {
+        final PackOK r = (PackOK) r1;
+        System.out.println(r.rectangle);
+        break;
+      }
+      case PACK_RESULT_OUT_OF_SPACE:
+        throw new AssertionError("unreachable");
+      case PACK_RESULT_TOO_LARGE:
+        throw new AssertionError("unreachable");
+    }
+
+    final PackResult r3 = packer.insert(new Rectangle(0, 0, 31, 31));
+    switch (r3.type) {
+      case PACK_RESULT_OK:
+        throw new AssertionError("unreachable");
+      case PACK_RESULT_OUT_OF_SPACE:
+        System.out.println("out of space!");
+        break;
+      case PACK_RESULT_TOO_LARGE:
+        throw new AssertionError("unreachable");
+    }
+  }
+}]]>
+        </s:verbatim>
+      </s:formal-item>
+    </s:section>
+  </s:part>
+
+  <s:part>
+    <s:part-title>API Reference</s:part-title>
+    <s:part-contents/>
+    <s:section>
+      <s:section-title>Javadoc</s:section-title>
+      <s:paragraph>
+        API documentation for the package is provided via the
+        included <s:link-external target="javadoc">Javadoc</s:link-external>.
+      </s:paragraph>
+    </s:section>
+  </s:part>
+
+</s:document>
