@@ -8,6 +8,11 @@
     <c:item>
       <c:date>2012-03-21</c:date>
       <c:type-code-new/>
+      <c:summary>Add FreeBSD 8.2 as supported</c:summary>
+    </c:item>
+    <c:item>
+      <c:date>2012-03-21</c:date>
+      <c:type-code-new/>
       <c:summary>Add missing Eclipse project files</c:summary>
     </c:item>
   </c:release>
