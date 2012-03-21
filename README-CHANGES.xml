@@ -3,6 +3,16 @@
   <c:project>io7m-jrpack</c:project>
 
   <c:release ticket-system="com.io7m.fossil.jrpack">
+    <c:date>2012-03-21</c:date>
+    <c:version>1.1.0</c:version>
+    <c:item>
+      <c:date>2012-03-21</c:date>
+      <c:type-code-new/>
+      <c:summary>Add missing Eclipse project files</c:summary>
+    </c:item>
+  </c:release>
+
+  <c:release ticket-system="com.io7m.fossil.jrpack">
     <c:date>2012-03-15</c:date>
     <c:version>1.0.0</c:version>
     <c:item>
