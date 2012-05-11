@@ -35,7 +35,7 @@ public class RectangleTest
 
     Assert.assertFalse(r0.equals(null));
     Assert.assertTrue(r0.equals(r0));
-    Assert.assertFalse(r0.equals(new Integer(32)));
+    Assert.assertFalse(r0.equals(Integer.valueOf(32)));
     Assert.assertTrue(r0.equals(r2) == false);
     Assert.assertTrue(r0.equals(r3) == false);
     Assert.assertTrue(r0.equals(r4) == false);
