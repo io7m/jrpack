@@ -171,8 +171,6 @@ public final class Viewer2D implements Runnable
                 Viewer2D.this.pack_result = pr.type;
                 break;
               case PACK_RESULT_OUT_OF_SPACE:
-                Viewer2D.this.pack_result = pr.type;
-                break;
               case PACK_RESULT_TOO_LARGE:
                 Viewer2D.this.pack_result = pr.type;
                 break;
