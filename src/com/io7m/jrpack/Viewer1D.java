@@ -34,6 +34,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
 import com.io7m.jaux.Constraints.ConstraintError;
@@ -84,16 +85,23 @@ public final class Viewer1D implements Runnable
 
   public static void main(
     final String args[])
-    throws ConstraintError
   {
-    final Viewer1D v = new Viewer1D();
-    final JFrame frame = new JFrame("Viewer1D");
-    frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-    frame.getContentPane().add(v.getPanel());
-    frame.pack();
-    frame.setVisible(true);
-
-    v.run();
+    SwingUtilities.invokeLater(new Runnable() {
+      @SuppressWarnings("synthetic-access") @Override public void run()
+      {
+        try {
+          final Viewer1D v = new Viewer1D();
+          final JFrame frame = new JFrame("Viewer1D");
+          frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+          frame.getContentPane().add(v.getPanel());
+          frame.pack();
+          frame.setVisible(true);
+          v.run();
+        } catch (final ConstraintError e) {
+          e.printStackTrace();
+        }
+      }
+    });
   }
 
   private PackResultCode       pack_result = null;

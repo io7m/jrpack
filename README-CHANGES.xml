@@ -8,6 +8,11 @@
     <c:item>
       <c:date>2012-05-11</c:date>
       <c:type-code-fix/>
+      <c:summary>Use the Swing event thread rather than calling Swing functions directly</c:summary>
+    </c:item>
+    <c:item>
+      <c:date>2012-05-11</c:date>
+      <c:type-code-fix/>
       <c:summary>Additional assertions to please findbugs</c:summary>
     </c:item>
   </c:release>
