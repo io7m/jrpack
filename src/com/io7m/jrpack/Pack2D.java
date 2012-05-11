@@ -84,10 +84,13 @@ public final class Pack2D
         }
       }
 
+      assert this.left != null;
       final Node new_node = this.left.insertInner(input);
       if (new_node != null) {
         return new_node;
       }
+
+      assert this.right != null;
       return this.right.insertInner(input);
     }
 
