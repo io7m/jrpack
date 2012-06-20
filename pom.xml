@@ -3,20 +3,10 @@
   <groupId>com.io7m.jrpack</groupId>
   <artifactId>io7m-jrpack</artifactId>
   <version>2.0.0</version>
+  <packaging>jar</packaging>
   <name>io7m-jrpack</name>
-  <description>Generic timeline package</description>
+  <description>Rectangle packing algorithms</description>
   <url>http://io7m.com/software/jrpack/</url>
-
-  <issueManagement>
-    <url>http://fossil.io7m.com/repo.cgi/io7m-jrpack</url>
-    <system>Fossil</system>
-  </issueManagement>
-
-  <scm>
-    <url>http://fossil.io7m.com/repo.cgi/io7m-jrpack</url>
-    <connection>scm:http://fossil.io7m.com/repo.cgi/io7m-jrpack</connection>
-    <developerConnection>scm:http://fossil.io7m.com/repo.cgi/io7m-jrpack</developerConnection>
-  </scm>
 
   <licenses>
     <license>
@@ -24,6 +14,26 @@
       <url>http://www.opensource.org/licenses/isc-license.txt</url>
     </license>
   </licenses>
+
+  <scm>
+    <url>http://fossil.io7m.com/repo.cgi/io7m-jrpack</url>
+    <connection>scm:http://fossil.io7m.com/repo.cgi/io7m-jrpack</connection>
+    <developerConnection>scm:http://fossil.io7m.com/repo.cgi/io7m-jrpack</developerConnection>
+  </scm>
+
+  <developers>
+    <developer>
+      <id>io7m</id>
+      <name>io7m</name>
+      <email>code@io7m.com</email>
+      <url>http://io7m.com</url>
+    </developer>
+  </developers>
+
+  <issueManagement>
+    <url>http://fossil.io7m.com/repo.cgi/io7m-jrpack</url>
+    <system>Fossil</system>
+  </issueManagement>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -51,6 +61,7 @@
 
   <build>
     <plugins>
+      <!-- Require JDK >= 1.6 -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -61,6 +72,7 @@
         </configuration>
       </plugin>
 
+      <!-- Produce custom manifest in jar files -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
@@ -85,21 +97,6 @@
             </manifestSection>
           </archive>
         </configuration>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-gpg-plugin</artifactId>
-        <version>1.4</version>
-        <executions>
-          <execution>
-            <id>sign-artifacts</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>sign</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
 
       <!-- Create source jar -->
@@ -134,5 +131,35 @@
       </plugin>
     </plugins>
   </build>
+
+  <!-- Sign artifacts when deploying to io7m -->
+  <profiles>
+    <profile>
+      <id>io7m-deployment-private</id>
+      <activation>
+        <property>
+          <name>io7m.deployment</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.4</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
 </project>
