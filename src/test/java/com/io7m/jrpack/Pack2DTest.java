@@ -4,8 +4,11 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import com.io7m.jaux.Constraints.ConstraintError;
+import com.io7m.jrpack.Pack2D;
+import com.io7m.jrpack.PackResult;
 import com.io7m.jrpack.PackResult.PackOK;
 import com.io7m.jrpack.PackResult.PackResultCode;
+import com.io7m.jrpack.Rectangle;
 
 public class Pack2DTest
 {

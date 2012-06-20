@@ -21,6 +21,8 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 import com.io7m.jaux.Constraints.ConstraintError;
+import com.io7m.jrpack.Pack1D;
+import com.io7m.jrpack.PackResult;
 import com.io7m.jrpack.PackResult.PackOK;
 import com.io7m.jrpack.PackResult.PackResultCode;
 
