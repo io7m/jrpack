@@ -17,6 +17,15 @@
       space-efficient manner. Rectangle packing is often used during
       lightmap generation and in the generation of GPU textures for
       efficient text rendering.
+      <p>
+        <a href="http://io7m.com/software/jrpack/viewer2d.png" title="2D Viewer">
+          <img src="http://io7m.com/software/jrpack/viewer2d-thumb.png" alt="2D Viewer"/>
+        </a>
+        &nbsp;
+        <a href="http://io7m.com/software/jrpack/viewer1d.png" title="1D Viewer">
+          <img src="http://io7m.com/software/jrpack/viewer1d-thumb.png" alt="1D Viewer"/>
+        </a>
+      </p>
     </subsection>
     <subsection name="features">
       <ul>
