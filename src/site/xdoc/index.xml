@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document
+  xmlns="http://maven.apache.org/XDOC/2.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+
+  <properties>
+    <title>io7m-jrpack</title>
+  </properties>
+
+  <body>
+    <subsection name="jrpack">
+      The <var>jrpack</var>
+      package implements a set of simple rectangle packing algorithms.
+      The algorithms are general purpose: they take a set of
+      rectangles and attempt to pack them into a large rectangle in a
+      space-efficient manner. Rectangle packing is often used during
+      lightmap generation and in the generation of GPU textures for
+      efficient text rendering.
+    </subsection>
+    <subsection name="features">
+      <ul>
+        <li>Trivial 1D and 2D rectangle packing algorithms.</li>
+        <li>90% automated unit test coverage of executable code.</li>
+        <li>ISC license.</li>
+        <li>Platform independent (tested on FreeBSD, Linux, Mac OS X, Solaris, Windows XP).</li>
+      </ul>
+    </subsection>
+  </body>
+
+</document>
