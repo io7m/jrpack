@@ -1,0 +1,4 @@
+2012-07-14:io7m-jrpack-2.1.0-javadoc.jar:79113
+2012-07-14:io7m-jrpack-2.1.0-sources.jar:12876
+2012-07-14:io7m-jrpack-2.1.0.jar:36380
+2012-07-14:io7m-jrpack-2.1.0.zip:53760
