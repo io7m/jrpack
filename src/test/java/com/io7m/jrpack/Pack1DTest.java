@@ -21,22 +21,20 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 import com.io7m.jaux.Constraints.ConstraintError;
-import com.io7m.jrpack.Pack1D;
-import com.io7m.jrpack.PackResult;
 import com.io7m.jrpack.PackResult.PackOK;
 import com.io7m.jrpack.PackResult.PackResultCode;
 
 public class Pack1DTest
 {
-  @SuppressWarnings("unused") @Test(expected = ConstraintError.class) public
-    void
-    testInvalidElementHeight0()
-      throws ConstraintError
+  @SuppressWarnings({ "unused", "static-method" }) @Test(
+    expected = ConstraintError.class) public void testInvalidElementHeight0()
+    throws ConstraintError
   {
     new Pack1D(2, 2, 0);
   }
 
-  @SuppressWarnings("unused") @Test(expected = ConstraintError.class) public
+  @SuppressWarnings({ "unused", "static-method" }) @Test(
+    expected = ConstraintError.class) public
     void
     testInvalidElementHeightLarge()
       throws ConstraintError
@@ -44,23 +42,21 @@ public class Pack1DTest
     new Pack1D(2, 2, 3);
   }
 
-  @SuppressWarnings("unused") @Test(expected = ConstraintError.class) public
-    void
-    testInvalidHeight0()
-      throws ConstraintError
+  @SuppressWarnings({ "unused", "static-method" }) @Test(
+    expected = ConstraintError.class) public void testInvalidHeight0()
+    throws ConstraintError
   {
     new Pack1D(1, 0, 1);
   }
 
-  @SuppressWarnings("unused") @Test(expected = ConstraintError.class) public
-    void
-    testInvalidWidth0()
-      throws ConstraintError
+  @SuppressWarnings({ "unused", "static-method" }) @Test(
+    expected = ConstraintError.class) public void testInvalidWidth0()
+    throws ConstraintError
   {
     new Pack1D(0, 128, 1);
   }
 
-  @Test public void testPackValid()
+  @SuppressWarnings("static-method") @Test public void testPackValid()
     throws ConstraintError
   {
     final Pack1D p = new Pack1D(32, 32, 8);
@@ -120,7 +116,7 @@ public class Pack1DTest
     }
   }
 
-  @Test public void testTooLarge()
+  @SuppressWarnings("static-method") @Test public void testTooLarge()
     throws ConstraintError
   {
     final Pack1D p = new Pack1D(32, 32, 2);
@@ -128,14 +124,18 @@ public class Pack1DTest
     Assert.assertEquals(PackResultCode.PACK_RESULT_TOO_LARGE, r.type);
   }
 
-  @SuppressWarnings("unused") @Test public void testValid()
-    throws ConstraintError
+  @SuppressWarnings({ "unused", "static-method" }) @Test public
+    void
+    testValid()
+      throws ConstraintError
   {
     new Pack1D(32, 32, 2);
   }
 
-  @Test(expected = ConstraintError.class) public void testZeroWidth()
-    throws ConstraintError
+  @SuppressWarnings("static-method") @Test(expected = ConstraintError.class) public
+    void
+    testZeroWidth()
+      throws ConstraintError
   {
     final Pack1D p = new Pack1D(32, 32, 2);
     p.insert(0);

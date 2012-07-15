@@ -4,15 +4,12 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import com.io7m.jaux.Constraints.ConstraintError;
-import com.io7m.jrpack.Pack2D;
-import com.io7m.jrpack.PackResult;
 import com.io7m.jrpack.PackResult.PackOK;
 import com.io7m.jrpack.PackResult.PackResultCode;
-import com.io7m.jrpack.Rectangle;
 
 public class Pack2DTest
 {
-  @Test public void testExact()
+  @SuppressWarnings("static-method") @Test public void testExact()
     throws ConstraintError
   {
     final Pack2D p = new Pack2D(new Rectangle(0, 0, 15, 15));
@@ -63,7 +60,7 @@ public class Pack2DTest
     }
   }
 
-  @Test public void testHeightTooLarge()
+  @SuppressWarnings("static-method") @Test public void testHeightTooLarge()
     throws ConstraintError
   {
     final Pack2D p = new Pack2D(new Rectangle(0, 0, 31, 15));
@@ -74,7 +71,7 @@ public class Pack2DTest
     }
   }
 
-  @Test public void testProperties()
+  @SuppressWarnings("static-method") @Test public void testProperties()
     throws ConstraintError
   {
     final Pack2D p = new Pack2D(new Rectangle(0, 0, 15, 15));
@@ -85,7 +82,7 @@ public class Pack2DTest
     Assert.assertEquals(15, p.getUpperY());
   }
 
-  @Test public void testWidthTooLarge()
+  @SuppressWarnings("static-method") @Test public void testWidthTooLarge()
     throws ConstraintError
   {
     final Pack2D p = new Pack2D(new Rectangle(0, 0, 15, 31));

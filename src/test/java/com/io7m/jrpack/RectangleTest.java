@@ -10,7 +10,7 @@ import com.io7m.jrpack.Rectangle.Fit;
 
 public class RectangleTest
 {
-  @Test public void testRectangle0()
+  @SuppressWarnings("static-method") @Test public void testRectangle0()
     throws ConstraintError
   {
     final Rectangle r = new Rectangle(0, 0, 0, 0);
@@ -23,7 +23,7 @@ public class RectangleTest
     Assert.assertTrue(r.y0 == 0);
   }
 
-  @Test public void testRectangleEquals()
+  @SuppressWarnings("static-method") @Test public void testRectangleEquals()
     throws ConstraintError
   {
     final Rectangle r0 = new Rectangle(0, 0, 1, 1);
@@ -43,16 +43,20 @@ public class RectangleTest
     Assert.assertTrue(r0.equals(r1));
   }
 
-  @Test public void testRectangleFitExactReflexive()
-    throws ConstraintError
+  @SuppressWarnings("static-method") @Test public
+    void
+    testRectangleFitExactReflexive()
+      throws ConstraintError
   {
     final Rectangle r0 = new Rectangle(0, 0, 1, 1);
 
     Assert.assertTrue(r0.fitsInside(r0) == Fit.FIT_YES_EXACT);
   }
 
-  @Test public void testRectangleFitExactSymmetric()
-    throws ConstraintError
+  @SuppressWarnings("static-method") @Test public
+    void
+    testRectangleFitExactSymmetric()
+      throws ConstraintError
   {
     final Rectangle r0 = new Rectangle(0, 0, 1, 1);
     final Rectangle r1 = new Rectangle(0, 0, 1, 1);
@@ -61,8 +65,10 @@ public class RectangleTest
     Assert.assertTrue(r1.fitsInside(r0) == Fit.FIT_YES_EXACT);
   }
 
-  @Test public void testRectangleFitLargeAntisymmetric()
-    throws ConstraintError
+  @SuppressWarnings("static-method") @Test public
+    void
+    testRectangleFitLargeAntisymmetric()
+      throws ConstraintError
   {
     final Rectangle r0 = new Rectangle(0, 0, 3, 3);
     final Rectangle r1 = new Rectangle(0, 0, 1, 1);
@@ -71,8 +77,10 @@ public class RectangleTest
     Assert.assertTrue(r0.fitsInside(r1) == Fit.FIT_NO_TOO_SMALL);
   }
 
-  @Test public void testRectangleHashCode()
-    throws ConstraintError
+  @SuppressWarnings("static-method") @Test public
+    void
+    testRectangleHashCode()
+      throws ConstraintError
   {
     final Rectangle r0 = new Rectangle(0, 0, 1, 1);
     final Rectangle r1 = new Rectangle(0, 0, 1, 1);
@@ -81,8 +89,10 @@ public class RectangleTest
     Assert.assertTrue(r0.hashCode() == r0.hashCode());
   }
 
-  @Test public void testRectangleHorizontalSplit0()
-    throws ConstraintError
+  @SuppressWarnings("static-method") @Test public
+    void
+    testRectangleHorizontalSplit0()
+      throws ConstraintError
   {
     final Rectangle r = new Rectangle(0, 0, 1, 1);
     final Pair<Rectangle, Rectangle> p = r.splitHorizontal(0);
@@ -98,7 +108,7 @@ public class RectangleTest
     Assert.assertEquals(1, p.second.y1);
   }
 
-  @Test(expected = ConstraintError.class) public
+  @SuppressWarnings("static-method") @Test(expected = ConstraintError.class) public
     void
     testRectangleHorizontalSplitCannotOutOfRangeLower()
       throws ConstraintError
@@ -107,7 +117,7 @@ public class RectangleTest
     r.splitHorizontal(-1);
   }
 
-  @Test(expected = ConstraintError.class) public
+  @SuppressWarnings("static-method") @Test(expected = ConstraintError.class) public
     void
     testRectangleHorizontalSplitCannotOutOfRangeUpper()
       throws ConstraintError
@@ -116,7 +126,7 @@ public class RectangleTest
     r.splitHorizontal(1);
   }
 
-  @Test(expected = ConstraintError.class) public
+  @SuppressWarnings("static-method") @Test(expected = ConstraintError.class) public
     void
     testRectangleHorizontalSplitCannotTooSmall()
       throws ConstraintError
@@ -125,7 +135,7 @@ public class RectangleTest
     r.splitHorizontal(0);
   }
 
-  @Test(expected = ConstraintError.class) public
+  @SuppressWarnings("static-method") @Test(expected = ConstraintError.class) public
     void
     testRectangleHorizontalSplitCannotUpper()
       throws ConstraintError
@@ -134,24 +144,24 @@ public class RectangleTest
     r.splitHorizontal(1);
   }
 
-  @SuppressWarnings("unused") @Test(expected = ConstraintError.class) public
-    void
-    testRectangleInvalid0()
-      throws ConstraintError
+  @SuppressWarnings({ "unused", "static-method" }) @Test(
+    expected = ConstraintError.class) public void testRectangleInvalid0()
+    throws ConstraintError
   {
     new Rectangle(0, 0, -1, 0);
   }
 
-  @SuppressWarnings("unused") @Test(expected = ConstraintError.class) public
-    void
-    testRectangleInvalid1()
-      throws ConstraintError
+  @SuppressWarnings({ "unused", "static-method" }) @Test(
+    expected = ConstraintError.class) public void testRectangleInvalid1()
+    throws ConstraintError
   {
     new Rectangle(0, 0, 0, -1);
   }
 
-  @Test public void testRectangleSplitFitExact()
-    throws ConstraintError
+  @SuppressWarnings("static-method") @Test public
+    void
+    testRectangleSplitFitExact()
+      throws ConstraintError
   {
     final Rectangle source = new Rectangle(0, 0, 511, 511);
     final Rectangle r = new Rectangle(0, 0, 31, 31);
@@ -180,7 +190,7 @@ public class RectangleTest
     Assert.assertTrue(p1.first.fitsInside(r) == Fit.FIT_YES_EXACT);
   }
 
-  @Test public void testRectangleStrings()
+  @SuppressWarnings("static-method") @Test public void testRectangleStrings()
     throws ConstraintError
   {
     final Rectangle r0 = new Rectangle(0, 0, 2, 2);
@@ -191,8 +201,10 @@ public class RectangleTest
     Assert.assertFalse(r0.toString().equals(r2.toString()));
   }
 
-  @Test public void testRectangleVerticalSplit()
-    throws ConstraintError
+  @SuppressWarnings("static-method") @Test public
+    void
+    testRectangleVerticalSplit()
+      throws ConstraintError
   {
     final Rectangle r = new Rectangle(0, 0, 1, 1);
     final Pair<Rectangle, Rectangle> p = r.splitVertical(0);
@@ -208,7 +220,7 @@ public class RectangleTest
     Assert.assertEquals(1, p.second.y1);
   }
 
-  @Test(expected = ConstraintError.class) public
+  @SuppressWarnings("static-method") @Test(expected = ConstraintError.class) public
     void
     testRectangleVerticalSplitCannotOutOfRangeLower()
       throws ConstraintError
@@ -217,7 +229,7 @@ public class RectangleTest
     r.splitVertical(-1);
   }
 
-  @Test(expected = ConstraintError.class) public
+  @SuppressWarnings("static-method") @Test(expected = ConstraintError.class) public
     void
     testRectangleVerticalSplitCannotOutOfRangeUpper()
       throws ConstraintError
@@ -226,7 +238,7 @@ public class RectangleTest
     r.splitVertical(1);
   }
 
-  @Test(expected = ConstraintError.class) public
+  @SuppressWarnings("static-method") @Test(expected = ConstraintError.class) public
     void
     testRectangleVerticalSplitCannotTooSmall()
       throws ConstraintError
@@ -235,7 +247,7 @@ public class RectangleTest
     r.splitVertical(0);
   }
 
-  @Test(expected = ConstraintError.class) public
+  @SuppressWarnings("static-method") @Test(expected = ConstraintError.class) public
     void
     testRectangleVerticalSplitCannotUpper()
       throws ConstraintError
