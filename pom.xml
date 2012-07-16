@@ -6,7 +6,7 @@
   <packaging>jar</packaging>
   <name>io7m-jrpack</name>
   <description>Rectangle packing algorithms</description>
-  <url>http://io7m.com/software/jrpack/</url>
+  <url>http://mvn.io7m.com/jrpack/</url>
 
   <licenses>
     <license>
@@ -39,7 +39,7 @@
     <site>
       <id>io7m</id>
       <name>io7m.com</name>
-      <url>http://io7m.com/software/jrpack/</url>
+      <url>http://mvn.io7m.com/jrpack/</url>
     </site>
   </distributionManagement>
 
