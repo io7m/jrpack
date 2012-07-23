@@ -19,13 +19,14 @@
 <s:document
   xmlns:s="http://www.io7m.com/schemas/structural/1.0.0"
   xmlns:xi="http://www.w3.org/2001/XInclude">
-  <s:document-title>io7m-jrpack 2.1.0 Documentation</s:document-title>
+  <s:document-title>io7m-jrpack 2.2.0 Documentation</s:document-title>
   <s:document-style>documentation.css</s:document-style>
   <s:document-contents/>
 
   <s:part>
     <s:part-title>Package Information</s:part-title>
     <s:part-contents />
+
     <s:section>
       <s:section-title>Orientation</s:section-title>
       <s:subsection>
@@ -40,16 +41,37 @@
         </s:paragraph>
       </s:subsection>
     </s:section>
+
     <s:section>
       <s:section-title>Installation</s:section-title>
-      <s:paragraph>
-        The project can be compiled and installed with
-        <s:link-external target="http://maven.apache.org">Maven</s:link-external>:
-      </s:paragraph>
-      <s:paragraph>
-        <s:verbatim type="example"><![CDATA[$ mvn clean install]]></s:verbatim>     
-      </s:paragraph>
+      <s:subsection>
+        <s:subsection-title>Source compilation</s:subsection-title>
+        <s:paragraph>
+          The project can be compiled and installed with
+          <s:link-external target="http://maven.apache.org">Maven</s:link-external>:
+        </s:paragraph>
+        <s:paragraph>
+          <s:verbatim type="example"><![CDATA[$ mvn -C clean install]]></s:verbatim>
+        </s:paragraph>
+      </s:subsection>
+      <s:subsection>
+        <s:subsection-title>Maven</s:subsection-title>
+        <s:paragraph>
+          Regular releases are made to the
+          <s:link-external target="http://search.maven.org/#search|ga|1|io7m-jrpack">Central Repository</s:link-external>,
+          so it's possible to use the <s:term type="package">jrpack</s:term>
+          package in your projects with the following Maven dependency:
+        </s:paragraph>
+        <s:paragraph>
+          <s:verbatim type="example"><![CDATA[<dependency>
+  <groupId>com.io7m.jrpack</groupId>
+  <artifactId>io7m-jrpack</artifactId>
+  <version>2.2.0</version>
+</dependency>]]></s:verbatim>
+        </s:paragraph>
+      </s:subsection>
     </s:section>
+
     <s:section>
       <s:section-title>Supported Systems</s:section-title>
       <s:paragraph>
@@ -119,12 +141,14 @@
         </s:table>
       </s:formal-item>
     </s:section>
+
     <s:section>
       <s:section-title>Platform Specific Issues</s:section-title>
       <s:paragraph>
         There are currently no known platform-specific issues.
       </s:paragraph>
     </s:section>
+
     <s:section>
       <s:section-title>License</s:section-title>
       <s:paragraph>
