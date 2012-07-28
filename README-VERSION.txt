@@ -1,1 +1,1 @@
-io7m-jrpack 2.1.0
+io7m-jrpack 2.2.0
