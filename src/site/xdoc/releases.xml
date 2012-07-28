@@ -150,15 +150,11 @@
        summary="Changes">
    <tr class="page_table_row">
       <td class="page_table_column">2012-07-27</td>
-      <td class="page_table_column">Release: io7m-jrpack 2.2.1</td>
+      <td class="page_table_column">Release: io7m-jrpack 2.2.0</td>
    </tr>
    <tr class="page_table_row">
       <td class="page_table_column">2012-07-27</td>
       <td class="page_table_column">Code fix: Update saxon-plugin to 1.1.0 to correct documentation builds on Windows</td>
-   </tr>
-   <tr class="page_table_row">
-      <td class="page_table_column">2012-07-23</td>
-      <td class="page_table_column">Release: io7m-jrpack 2.2.0</td>
    </tr>
    <tr class="page_table_row">
       <td class="page_table_column">2012-07-23</td>
