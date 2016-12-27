@@ -1,6 +1,8 @@
 io7m-jrpack
 ===========
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/186f45bcd16c4a0ebd44d2cccf1e17c1)](https://www.codacy.com/app/github_79/jrpack?utm_source=github.com&utm_medium=referral&utm_content=io7m/jrpack&utm_campaign=badger)
+
 THIS PROJECT IS UNMAINTAINED.
 
 ```
